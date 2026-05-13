@@ -1,5 +1,5 @@
 # Waste Circular Platform
-### Ai Generated Code : pirpose of this is to save the file. plannig to make this project soon
+### Ai Generated Code : purpose of this is to save the file. plannig to make this project soon
 Enterprise-grade Django MVP frontend for an AI-powered waste management and circular economy platform.
 
 ## Stack
