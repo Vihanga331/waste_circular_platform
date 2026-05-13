@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="mb-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+  {% for metric in metrics %}{% include "components/metric_card.html" with metric=metric %}{% endfor %}
+</section>
+
+<section class="grid gap-5 xl:grid-cols-[1.4fr_.8fr]">
+  <div class="glass-card p-5">
+    <div class="mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+      <div>
+        <h2 class="section-title">City Waste and Resource Flow</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Mock data now, API-fed analytics later.</p>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn-secondary"><i data-lucide="refresh-cw" class="h-4 w-4"></i>Live sync</button>
+        <a href="{% url 'api:index' %}" class="btn-primary"><i data-lucide="plug-zap" class="h-4 w-4"></i>API map</a>
+      </div>
+    </div>
+    <div class="h-80"><canvas id="wasteChart"></canvas></div>
+  </div>
+  <div class="space-y-5">
+    <div class="glass-card p-5">
+      <h2 class="section-title">Sustainability Mix</h2>
+      <div class="mt-4 h-64"><canvas id="donutChart"></canvas></div>
+    </div>
+    {% include "components/activity_timeline.html" %}
+  </div>
+</section>
+
+<section class="mt-5 grid gap-5 xl:grid-cols-[1.2fr_.8fr]">
+  {% include "components/data_table.html" with table_title="Live Collection Status" %}
+  <div class="glass-card p-5">
+    <h2 class="section-title">Notification Center</h2>
+    <div class="mt-4 space-y-3">
+      {% for item in notifications %}
+        <div class="flex items-start gap-3 border border-slate-200 bg-white/60 p-3 dark:border-white/10 dark:bg-white/5">
+          <i data-lucide="radio-tower" class="mt-0.5 h-4 w-4 text-sky-500"></i>
+          <p class="text-sm">{{ item }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid gap-5 lg:grid-cols-3">
+  <div class="glass-card p-5"><h2 class="section-title">PET Plastic</h2><p class="mt-3 text-3xl font-semibold">4.2 t</p><p class="text-sm text-slate-500">Revenue estimate $6,800</p></div>
+  <div class="glass-card p-5"><h2 class="section-title">Glass</h2><p class="mt-3 text-3xl font-semibold">2.7 t</p><p class="text-sm text-slate-500">Contamination 3.1%</p></div>
+  <div class="glass-card p-5"><h2 class="section-title">Aluminum</h2><p class="mt-3 text-3xl font-semibold">810 kg</p><p class="text-sm text-slate-500">Marketplace ready</p></div>
+</section>
+<section class="mt-5 grid gap-5 xl:grid-cols-[1fr_.8fr]">
+  <div class="glass-card p-5">
+    <h2 class="section-title">Material Tracking</h2>
+    <div class="mt-4 overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead class="text-left text-xs uppercase text-slate-500"><tr><th class="py-3">Batch</th><th>Material</th><th>Warehouse</th><th>Status</th></tr></thead>
+        <tbody class="divide-y divide-slate-200 dark:divide-white/10">
+          <tr><td class="py-3">RC-1021</td><td>PET</td><td>North Yard</td><td><span class="status-pill success">Sorted</span></td></tr>
+          <tr><td class="py-3">RC-1022</td><td>Glass</td><td>East Depot</td><td><span class="status-pill warning">Cleaning</span></td></tr>
+          <tr><td class="py-3">RC-1023</td><td>Aluminum</td><td>Market Bay</td><td><span class="status-pill success">For sale</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="glass-card p-5">
+    <h2 class="section-title">Recycling Marketplace</h2>
+    <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Future B2B marketplace for verified circular materials, carbon-linked pricing, and buyer bidding.</p>
+    <button class="btn-secondary mt-5"><i data-lucide="lock" class="h-4 w-4"></i>Future module</button>
+  </div>
+</section>
+{% endblock %}

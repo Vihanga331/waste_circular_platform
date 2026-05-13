@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid gap-5 lg:grid-cols-[1fr_360px]">
+  <div class="glass-card p-5">
+    <h2 class="section-title">Profile Settings</h2>
+    <form class="mt-5 grid gap-4 md:grid-cols-2">
+      <label class="block text-sm">Full name<input class="field mt-1" value="CircuGreen Admin"></label>
+      <label class="block text-sm">Email<input class="field mt-1" value="admin@circugreen.ai"></label>
+      <label class="block text-sm">Role<select class="field mt-1"><option>admin</option></select></label>
+      <label class="block text-sm">Phone<input class="field mt-1" value="+94 77 000 0000"></label>
+      <div class="md:col-span-2"><button class="btn-primary" type="button">Save profile</button></div>
+    </form>
+  </div>
+  <div class="glass-card p-5">
+    <h2 class="section-title">Session Security</h2>
+    <div class="mt-4 space-y-3 text-sm">
+      <p class="flex justify-between"><span>MFA</span><span class="status-pill neutral">Prepared</span></p>
+      <p class="flex justify-between"><span>Email verified</span><span class="status-pill success">Yes</span></p>
+      <p class="flex justify-between"><span>JWT mobile tokens</span><span class="status-pill neutral">Future</span></p>
+    </div>
+    <a class="btn-secondary mt-5" href="{% url 'accounts:sessions' %}"><i data-lucide="monitor-smartphone" class="h-4 w-4"></i>Manage sessions</a>
+  </div>
+</section>
+{% endblock %}

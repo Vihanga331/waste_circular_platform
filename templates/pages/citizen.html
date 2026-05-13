@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid gap-5 xl:grid-cols-[1fr_360px]">
+  <div class="space-y-5">
+    <div class="glass-card p-5">
+      <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+        <div>
+          <h2 class="text-2xl font-semibold">Household CG-2048</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Citizen role dashboard with billing, methane credits, and sustainability scoring.</p>
+        </div>
+        <span class="status-pill success">Eco ranking 92nd percentile</span>
+      </div>
+      <div class="mt-5 grid gap-4 md:grid-cols-4">
+        <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm text-slate-500">Total waste</p><p class="text-2xl font-semibold">84 kg</p></div>
+        <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm text-slate-500">Recyclable</p><p class="text-2xl font-semibold">31 kg</p></div>
+        <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm text-slate-500">Organic</p><p class="text-2xl font-semibold">45 kg</p></div>
+        <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm text-slate-500">Carbon saved</p><p class="text-2xl font-semibold">126 kg</p></div>
+      </div>
+    </div>
+    <div class="grid gap-5 lg:grid-cols-2">
+      <div class="glass-card p-5">
+        <h2 class="section-title">Monthly Waste Status</h2>
+        <div class="mt-4 h-64"><canvas id="wasteChart"></canvas></div>
+      </div>
+      <div class="glass-card p-5">
+        <h2 class="section-title">Billing Dashboard</h2>
+        <div class="mt-4 space-y-3 text-sm">
+          <div class="flex justify-between"><span>Current monthly fee</span><strong>$18.20</strong></div>
+          <div class="flex justify-between"><span>Pending payments</span><strong class="text-amber-600">$0.00</strong></div>
+          <div class="flex justify-between"><span>Recycling credits</span><strong class="text-emerald-600">-$6.80</strong></div>
+          <button class="btn-primary mt-3"><i data-lucide="receipt-text" class="h-4 w-4"></i>Download receipt</button>
+        </div>
+        <div class="mt-4 h-44"><canvas id="billingChart"></canvas></div>
+      </div>
+      <div class="glass-card p-5">
+        <h2 class="section-title">Methane Gas Dashboard</h2>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm">Contribution</p><p class="text-2xl font-semibold">12.4 m3</p></div>
+          <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm">Available cylinders</p><p class="text-2xl font-semibold">3</p></div>
+          <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm">Order status</p><p class="font-semibold text-sky-600">Reserved</p></div>
+          <div class="border border-slate-200 p-4 dark:border-white/10"><p class="text-sm">Next availability</p><p class="font-semibold">May 14, 2026</p></div>
+        </div>
+      </div>
+      <div class="glass-card p-5">
+        <h2 class="section-title">Sustainability Score</h2>
+        <div class="mt-5 grid place-items-center">
+          <div class="grid h-40 w-40 place-items-center rounded-full border-[14px] border-emerald-500 bg-emerald-50 text-center dark:bg-emerald-400/10">
+            <span><strong class="block text-4xl">91</strong><small>Eco score</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="space-y-5">
+    <div class="glass-card p-5">
+      <h2 class="section-title">Collection Schedule</h2>
+      <div class="mt-4 space-y-3">
+        <div class="border border-slate-200 p-3 dark:border-white/10"><strong>Organic</strong><p class="text-sm text-slate-500">Tuesday, 07:30</p></div>
+        <div class="border border-slate-200 p-3 dark:border-white/10"><strong>Recycling</strong><p class="text-sm text-slate-500">Friday, 09:00</p></div>
+      </div>
+    </div>
+    <div class="glass-card p-5">
+      <h2 class="section-title">Notifications</h2>
+      <div class="mt-4 space-y-3">
+        {% for item in notifications %}<p class="border-l-4 border-emerald-500 bg-emerald-50 p-3 text-sm dark:bg-emerald-400/10">{{ item }}</p>{% endfor %}
+      </div>
+    </div>
+  </aside>
+</section>
+{% endblock %}

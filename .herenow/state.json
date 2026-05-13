@@ -1,0 +1,10 @@
+{
+  "publishes": {
+    "oaken-aura-ge2d": {
+      "siteUrl": "https://oaken-aura-ge2d.here.now/",
+      "claimToken": "2f64327b89d38b39df8ad14a5f2976479f37c52852bb5620069b9c8c95cfd021",
+      "claimUrl": "https://here.now/claim?slug=oaken-aura-ge2d&token=2f64327b89d38b39df8ad14a5f2976479f37c52852bb5620069b9c8c95cfd021",
+      "expiresAt": "2026-05-12T15:46:49.968Z"
+    }
+  }
+}

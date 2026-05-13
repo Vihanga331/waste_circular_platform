@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="mb-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+  {% for metric in metrics %}{% include "components/metric_card.html" with metric=metric %}{% endfor %}
+</section>
+<section class="grid gap-5 xl:grid-cols-[1.2fr_.8fr]">
+  {% include "components/data_table.html" with table_title="Fleet and Worker Control" %}
+  <div class="grid gap-5">
+    <div class="glass-card p-5">
+      <h2 class="section-title">Enterprise Management</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        <a class="btn-secondary" href="{% url 'core:users' %}"><i data-lucide="users" class="h-4 w-4"></i>User management</a>
+        <a class="btn-secondary" href="{% url 'core:settings' %}"><i data-lucide="settings" class="h-4 w-4"></i>API settings</a>
+        <a class="btn-secondary" href="{% url 'core:audit_logs' %}"><i data-lucide="file-search" class="h-4 w-4"></i>Audit logs</a>
+        <a class="btn-secondary" href="{% url 'core:analytics' %}"><i data-lucide="chart-no-axes-combined" class="h-4 w-4"></i>KPIs</a>
+      </div>
+    </div>
+    <div class="glass-card p-5">
+      <h2 class="section-title">System Alerts</h2>
+      <div class="mt-4 space-y-3">
+        <p class="status-pill warning">Truck TRK-088 delayed on Lakeside B2</p>
+        <p class="status-pill success">Methane purity above 96%</p>
+        <p class="status-pill neutral">23 receipts queued for generation</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

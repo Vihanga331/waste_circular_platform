@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="mb-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+  <div class="glass-card p-5"><p class="text-sm text-slate-500">Carbon reduction</p><p class="mt-2 text-3xl font-semibold">34.2 tCO2e</p></div>
+  <div class="glass-card p-5"><p class="text-sm text-slate-500">Landfill reduction</p><p class="mt-2 text-3xl font-semibold">61%</p></div>
+  <div class="glass-card p-5"><p class="text-sm text-slate-500">Methane generation</p><p class="mt-2 text-3xl font-semibold">4,280 m3</p></div>
+  <div class="glass-card p-5"><p class="text-sm text-slate-500">Segregation KPI</p><p class="mt-2 text-3xl font-semibold">88%</p></div>
+</section>
+<section class="grid gap-5 xl:grid-cols-[1.15fr_.85fr]">
+  <div class="glass-card p-5">
+    <h2 class="section-title">District Waste Trends</h2>
+    <div class="mt-4 h-80"><canvas id="wasteChart"></canvas></div>
+  </div>
+  <div class="glass-card p-5">
+    <h2 class="section-title">Sustainability Heatmap</h2>
+    <div class="mt-5 grid grid-cols-7 gap-2">
+      {% for cell in "123456789012345678901234567890123456789012" %}
+        <span class="h-10 {% cycle 'bg-emerald-200' 'bg-emerald-300' 'bg-sky-300' 'bg-slate-300' 'bg-emerald-500' %} dark:opacity-80"></span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="mt-5 grid gap-5 lg:grid-cols-3">
+  <div class="glass-card p-5"><h2 class="section-title">Household Waste Trends</h2><p class="mt-3 text-sm text-slate-500">Prepared for cohort analytics, anomaly detection, and neighborhood comparisons.</p></div>
+  <div class="glass-card p-5"><h2 class="section-title">ESG Reporting</h2><p class="mt-3 text-sm text-slate-500">Future export templates for government and enterprise ESG submissions.</p></div>
+  <div class="glass-card p-5"><h2 class="section-title">AI Forecast Feed</h2><p class="mt-3 text-sm text-slate-500">Ready for prediction microservices and WebSocket streaming.</p></div>
+</section>
+{% endblock %}

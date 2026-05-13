@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="glass-card p-5">
+  <h2 class="section-title">Session Management</h2>
+  <div class="mt-5 space-y-3">
+    <div class="flex flex-col justify-between gap-3 border border-slate-200 p-4 dark:border-white/10 sm:flex-row sm:items-center">
+      <div><strong>Desktop browser</strong><p class="text-sm text-slate-500">Colombo · current session</p></div><span class="status-pill success">Active</span>
+    </div>
+    <div class="flex flex-col justify-between gap-3 border border-slate-200 p-4 dark:border-white/10 sm:flex-row sm:items-center">
+      <div><strong>Mobile worker app</strong><p class="text-sm text-slate-500">Future JWT session</p></div><button class="btn-secondary">Revoke</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

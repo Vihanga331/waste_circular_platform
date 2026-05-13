@@ -1,0 +1,47 @@
+
+<!doctype html>
+<html lang="en" x-data="{ dark: false }">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verify Email | CircuGreen AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body class="min-h-screen bg-[#07111f] text-white">
+  <main class="grid min-h-screen lg:grid-cols-[1.1fr_.9fr]">
+    <section class="relative hidden overflow-hidden lg:block">
+      <div class="absolute inset-0 city-grid"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-sky-500/10 to-slate-950"></div>
+      <div class="relative flex h-full flex-col justify-between p-12">
+        <div class="flex items-center gap-3">
+          <span class="grid h-11 w-11 place-items-center border border-emerald-300/40 bg-white/10"><i data-lucide="recycle"></i></span>
+          <div>
+            <p class="text-lg font-semibold">CircuGreen AI</p>
+            <p class="text-sm text-emerald-100">Smart-city circular economy SaaS</p>
+          </div>
+        </div>
+        <div class="max-w-2xl">
+          <p class="mb-4 text-sm uppercase text-emerald-200">Django Authentication + RBAC Ready</p>
+          <h1 class="text-5xl font-semibold leading-tight">Waste intelligence, methane energy, and citizen billing in one civic operating system.</h1>
+        </div>
+      </div>
+    </section>
+    <section class="flex items-center justify-center px-5 py-10">
+      <div class="w-full max-w-md">
+        
+<div class="border border-white/10 bg-white/10 p-6 text-center backdrop-blur-xl">
+  <div class="mx-auto grid h-14 w-14 place-items-center bg-emerald-500/20 text-emerald-200"><i data-lucide="mail-check"></i></div>
+  <h1 class="mt-5 text-2xl font-semibold">Verify your email</h1>
+  <p class="mt-2 text-sm text-slate-300">Email verification placeholder. Production will use signed Django tokens and optional OTP/MFA.</p>
+  <a class="btn-primary mt-6" href="/accounts/login/">Continue to login</a>
+</div>
+
+      </div>
+    </section>
+  </main>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

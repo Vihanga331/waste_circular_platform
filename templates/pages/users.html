@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="glass-card overflow-hidden">
+  <div class="flex flex-col justify-between gap-3 border-b border-slate-200 p-5 dark:border-white/10 sm:flex-row sm:items-center">
+    <h2 class="section-title">User Management and RBAC</h2>
+    <button class="btn-primary"><i data-lucide="user-plus" class="h-4 w-4"></i>Add user</button>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-left text-sm">
+      <thead class="bg-slate-50 text-xs uppercase text-slate-500 dark:bg-white/5"><tr><th class="px-5 py-3">User</th><th>Role</th><th>Status</th><th>Session</th></tr></thead>
+      <tbody class="divide-y divide-slate-200 dark:divide-white/10">
+        <tr><td class="px-5 py-4">Asha Perera</td><td>collection worker</td><td><span class="status-pill success">Active</span></td><td>Mobile</td></tr>
+        <tr><td class="px-5 py-4">Ravi Fernando</td><td>methane plant operator</td><td><span class="status-pill success">Active</span></td><td>Desktop</td></tr>
+        <tr><td class="px-5 py-4">Maya Chen</td><td>government officer</td><td><span class="status-pill neutral">Review</span></td><td>Desktop</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

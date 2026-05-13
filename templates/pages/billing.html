@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid gap-5 xl:grid-cols-[1fr_380px]">
+  <div class="glass-card p-5">
+    <h2 class="section-title">Billing and Payment History</h2>
+    <div class="mt-4 h-72"><canvas id="billingChart"></canvas></div>
+  </div>
+  <div class="glass-card p-5">
+    <h2 class="section-title">Current Invoice</h2>
+    <div class="mt-4 space-y-3 text-sm">
+      <div class="flex justify-between"><span>Base fee</span><strong>$25.00</strong></div>
+      <div class="flex justify-between"><span>Recycling credit</span><strong>-$6.80</strong></div>
+      <div class="flex justify-between"><span>Methane contribution credit</span><strong>-$2.10</strong></div>
+      <div class="flex justify-between border-t border-slate-200 pt-3 text-lg dark:border-white/10"><span>Due</span><strong>$16.10</strong></div>
+    </div>
+    <button class="btn-primary mt-5"><i data-lucide="credit-card" class="h-4 w-4"></i>Pay now</button>
+  </div>
+</section>
+{% endblock %}

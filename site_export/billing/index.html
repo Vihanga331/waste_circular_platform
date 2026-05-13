@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html lang="en" x-data="{ dark: localStorage.theme === 'dark', sidebar: false }" x-bind:class="dark ? 'dark' : ''">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citizen Billing | CircuGreen AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            civic: { green: '#16a34a', blue: '#0284c7', ink: '#101827' }
+          },
+          boxShadow: { glow: '0 0 40px rgba(34,197,94,.18)' }
+        }
+      }
+    }
+  </script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body class="bg-slate-100 text-slate-900 antialiased dark:bg-[#07111f] dark:text-slate-100">
+  <div class="min-h-screen lg:flex">
+    <aside class="fixed inset-y-0 left-0 z-40 w-72 -translate-x-full border-r border-white/10 bg-[#07111f]/95 p-4 text-white backdrop-blur-xl transition lg:static lg:translate-x-0" x-bind:class="sidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
+  <div class="mb-7 flex items-center gap-3 px-2">
+    <span class="grid h-10 w-10 place-items-center bg-emerald-500 text-white shadow-glow"><i data-lucide="leaf"></i></span>
+    <div>
+      <p class="font-semibold">CircuGreen AI</p>
+      <p class="text-xs text-slate-400">Circular city OS</p>
+    </div>
+  </div>
+  <nav class="space-y-1">
+    
+      <a href="/" class="nav-link ">
+        <i data-lucide="layout-dashboard" class="h-4 w-4"></i><span>Dashboard</span>
+      </a>
+    
+      <a href="/citizen/" class="nav-link ">
+        <i data-lucide="user-round" class="h-4 w-4"></i><span>Citizen Portal</span>
+      </a>
+    
+      <a href="/admin-command/" class="nav-link ">
+        <i data-lucide="shield-check" class="h-4 w-4"></i><span>Admin Command</span>
+      </a>
+    
+      <a href="/collections/" class="nav-link ">
+        <i data-lucide="truck" class="h-4 w-4"></i><span>Collections</span>
+      </a>
+    
+      <a href="/methane/" class="nav-link ">
+        <i data-lucide="gauge" class="h-4 w-4"></i><span>Methane Plant</span>
+      </a>
+    
+      <a href="/recycling/" class="nav-link ">
+        <i data-lucide="recycle" class="h-4 w-4"></i><span>Recycling</span>
+      </a>
+    
+      <a href="/analytics/" class="nav-link ">
+        <i data-lucide="chart-spline" class="h-4 w-4"></i><span>Analytics</span>
+      </a>
+    
+      <a href="/map/" class="nav-link ">
+        <i data-lucide="map" class="h-4 w-4"></i><span>Smart City Map</span>
+      </a>
+    
+      <a href="/ai/" class="nav-link ">
+        <i data-lucide="sparkles" class="h-4 w-4"></i><span>AI Upgrades</span>
+      </a>
+    
+  </nav>
+  <div class="mt-7 border-t border-white/10 pt-5">
+    <p class="mb-3 px-2 text-xs font-semibold uppercase text-slate-500">Future expansion</p>
+    <div class="space-y-1">
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>IoT Smart Bins</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>Carbon Credit Marketplace</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>Blockchain Traceability</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>Smart Energy Grid</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>Fleet Telematics</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>ESG Reporting</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>Mobile App Integration</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+        <div class="flex items-center justify-between px-2 py-2 text-sm text-slate-400">
+          <span>Government Reporting API</span><i data-lucide="lock" class="h-3.5 w-3.5"></i>
+        </div>
+      
+    </div>
+  </div>
+</aside>
+<div class="fixed inset-0 z-30 bg-slate-950/60 lg:hidden" x-show="sidebar" x-on:click="sidebar=false" x-transition></div>
+
+    <div class="min-w-0 flex-1">
+      <header class="sticky top-0 z-20 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#07111f]/80">
+  <div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div class="flex min-w-0 items-center gap-3">
+      <button class="icon-btn lg:hidden" x-on:click="sidebar = true" aria-label="Open navigation"><i data-lucide="menu"></i></button>
+      <div class="min-w-0">
+        <p class="truncate text-sm text-slate-500 dark:text-slate-400">Smart-city SaaS platform</p>
+        <h1 class="truncate text-lg font-semibold">Citizen Billing</h1>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <a class="icon-btn" href="/notifications/" aria-label="Notifications"><i data-lucide="bell"></i></a>
+      <button class="icon-btn" x-on:click="dark = !dark; localStorage.theme = dark ? 'dark' : 'light'" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+      <a class="hidden items-center gap-2 border border-slate-200 bg-white px-3 py-2 text-sm font-medium dark:border-white/10 dark:bg-white/5 sm:flex" href="/accounts/profile/">
+        <span class="grid h-7 w-7 place-items-center bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-200">CG</span>
+        <span>Admin</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+      <main class="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        
+<section class="grid gap-5 xl:grid-cols-[1fr_380px]">
+  <div class="glass-card p-5">
+    <h2 class="section-title">Billing and Payment History</h2>
+    <div class="mt-4 h-72"><canvas id="billingChart"></canvas></div>
+  </div>
+  <div class="glass-card p-5">
+    <h2 class="section-title">Current Invoice</h2>
+    <div class="mt-4 space-y-3 text-sm">
+      <div class="flex justify-between"><span>Base fee</span><strong>$25.00</strong></div>
+      <div class="flex justify-between"><span>Recycling credit</span><strong>-$6.80</strong></div>
+      <div class="flex justify-between"><span>Methane contribution credit</span><strong>-$2.10</strong></div>
+      <div class="flex justify-between border-t border-slate-200 pt-3 text-lg dark:border-white/10"><span>Due</span><strong>$16.10</strong></div>
+    </div>
+    <button class="btn-primary mt-5"><i data-lucide="credit-card" class="h-4 w-4"></i>Pay now</button>
+  </div>
+</section>
+
+      </main>
+    </div>
+  </div>
+  <script src="/static/js/charts.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

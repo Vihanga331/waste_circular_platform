@@ -1,0 +1,15 @@
+{% extends "base_auth.html" %}
+{% block auth_content %}
+<div class="border border-white/10 bg-white/10 p-6 backdrop-blur-xl">
+  <h1 class="text-2xl font-semibold">Create platform account</h1>
+  <p class="mt-2 text-sm text-slate-300">Role-aware onboarding for citizens, workers, plant operators, admins, and government officers.</p>
+  <form class="mt-6 space-y-4">
+    <label class="block text-sm">Full name<input class="field mt-1" placeholder="Your name"></label>
+    <label class="block text-sm">Email<input class="field mt-1" type="email" placeholder="you@example.com"></label>
+    <label class="block text-sm">Role<select class="field mt-1"><option>citizen</option><option>collection worker</option><option>methane plant operator</option><option>admin</option><option>government officer</option></select></label>
+    <label class="block text-sm">Password<input class="field mt-1" type="password"></label>
+    <a class="btn-primary w-full" href="{% url 'accounts:verify_email' %}"><i data-lucide="mail-check" class="h-4 w-4"></i>Create account</a>
+  </form>
+  <p class="mt-5 text-sm text-slate-300">Already registered? <a class="text-emerald-200" href="{% url 'accounts:login' %}">Sign in</a></p>
+</div>
+{% endblock %}
