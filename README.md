@@ -22,6 +22,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Open `http://127.0.0.1:8000`.
+Open `https://oaken-aura-ge2d.here.now/`.
 
 This MVP intentionally uses realistic mock dashboard data. Business workflows, integrations, and data persistence rules are prepared as app boundaries, models, service placeholders, permissions, and API URL namespaces for future implementation.
